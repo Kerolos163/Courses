@@ -13,6 +13,9 @@ const express = require("express");
 const app = express();
 const portNumber = process.env.portNumber ?? 5000;
 
+const path = require("node:path");
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+
 app.use(cors());
 app.use(express.json()); //* Middleware to parse JSON request body
 
